@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: sans-serif; text-align: center; background: #000000; margin: 20px; color: white; }
+      .button-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      button {
+        padding: 10px;
+        border: none;
+        background: #3498db;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      button:hover { background: #2980b9; }
+      #mensaje { margin-top: 20px; font-weight: bold; }
+      h1, h2 { color: white; }
+      p { color: white; }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        background: #ff2d55; /* Color de PedidosYa */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .back-button:hover {
+        background: #e0264b;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="history.back()" class="back-button">Volver atrás</button>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://bestplacestoworkfor.org/sites/default/files/articles/Pedidosya.jpg"
+        alt="PedidosYa Logo"
+        style="height: 60px; margin-bottom: 10px;" />
+      <h1 style="margin: 0;">JHORDANMC TEMPLATES, CAMBIOS</h1>
+    </div>
+    <p>Haz clic para copiar una frase:</p>
+
+    <div class="button-grid">
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Descuide, yo le puedo ayudar con el cambio de la dirección.')">1. Cambio de dirección de envío</button>
+      <button onclick="copiarAlPortapapeles(this, 'Para proceder con ello, ¿me podrías pasar tu dirección correcta, por favor?')">2. Cambio de dirección parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, XXX. Descuide, yo le puedo apoyar con el cambio. Averiguaré los horarios disponibles, vuelvo en breve.')">3. Cambio de horario preorder</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por la confirmación, xxx. Ahora mismo te confirmo el nuevo horario. ')">4. Cambio de horario preorder parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Aprecio tu comprensión y paciencia, XXX. ¿Tendrás alguna consulta adicional? Si es así, hazmelo saber con total confianza.')">5. Pregunta de aseguramiento parte 1</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias, xxx. Además de ello, ¿hay algo más con lo que le pueda ayudar? 🙌🏻')">6. Pregunta de aseguramiento parte 2</button>
+    </div>
+
+    <h2 style="margin-top: 20px;">Retomas</h2>
+
+    <div class="button-grid" style="margin-top: 10px;">
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, xxx. ')">7. Gracias por tu espera</button>
+      <button onclick="copiarAlPortapapeles(this, 'Agradezco mucho tu paciencia, xxx. ')">8. Agradezco tu paciencia</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por aguardar, xxx.')">9. Gracias por aguardar</button>
+      <button onclick="copiarAlPortapapeles(this, 'Aprecio tu gentileza. Vuelvo en unos momentos.')">10. Aprecio la espera</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te agradezco por la espera, xxx. ¿Me podrías brindar unos minutos adicionales para poder ayudarte?')">11. Solicitar más tiempo</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te agradezco la espera, xxx. Estoy aquí para ayudarte con...')">12. Te agradezco la espera</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te agradezco la espera, xxx. Ya he gestionado el cambio de dirección.')">13. Te agradezco la espera por cambio de dirección</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te agradezco la espera, xxx. Estoy cargando aún los datos de la nueva dirección, espérame, por favor.')">14. Te agradezco la espera por cambio de dirección parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te agradezco la espera, xxx. Ya he gestionado el cambio de la nueva dirección.')">15. Te agradezco la espera por cambio de horario preorder</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, XXX. Sé que has esperado bastante. Averiguaré lo ocurrido.')">16. Retoma por demora extrema</button>
+    </div>
+    <h2 style="margin-top: 20px;">Despedida</h2>
+
+    <div class="button-grid" style="margin-top: 10px;">
+      <button onclick="copiarAlPortapapeles(this, 'Gracias a usted por su confianza y tiempo ofrecido, xxx. ¡Cuídese, tenga una buena noche! 💖')">1. DESPEDIDA CONFIANZA</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias a usted por su comprensión y paciencia, xxx. ¡Cuídese, tenga una buena noche! 💖')">2. DESPEDIDA COMPRENSIÓN</button>
+    </div>
+    <h2 style="margin-top: 20px;">ENCUESTA</h2>
+    <div class="button-grid" style="margin-top: 10px;">
+      <button onclick="copiarAlPortapapeles(this, 'Me ayudarías mucho calificando la encuesta de acuerdo a mi atención. A pesar de los inconvenientes, espero que te vaya bien. ¡Gracias!')">1. ENCUESTA A PESAR DE </button>
+      <button onclick="copiarAlPortapapeles(this, 'Me ayudarías mucho calificando la encuesta de acuerdo a mi atención. Sigue viviendo fuerte ante las adversidades, espero que te vaya bien. ¡Gracias!')">2. ENCUESTA, VIVE FUERTE</button>
+    </div>
+    <p>CANCELACIONES</p>
+
+    <div class="button-grid">
+      <button onclick="copiarAlPortapapeles(this, 'Comprendo su posición, XXX. No se preocupe, me ha pasado a mí también, yo le ayudaré con la cancelación de la orden. 💪🏻')">1. Cancelación cliente </button>
+      <button onclick="copiarAlPortapapeles(this, 'Ahora le confirmo la devolución para que no genere cobro alguno.')">2. Cancelación parte 2</button>
+    </div>
+    <div id="mensaje"></div>
+
+    <script>
+      function copiarAlPortapapeles(boton, texto) {
+        const colorOriginal = boton.style.backgroundColor;
+        boton.style.backgroundColor = 'red';
+
+        const tempInput = document.createElement('input');
+        tempInput.value = texto;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        document.getElementById('mensaje').textContent = '¡Copiado!';
+
+        setTimeout(() => {
+          boton.style.backgroundColor = colorOriginal;
+          document.getElementById('mensaje').textContent = '';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

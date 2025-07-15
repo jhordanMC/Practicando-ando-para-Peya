@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: sans-serif; text-align: center; background: #f4f7f6; margin: 20px; }
+      .button-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      button {
+        padding: 10px;
+        border: none;
+        background: #3498db; /* Color original del botón */
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Transición suave para el color */
+      }
+      button:hover { background: #2980b9; }
+      #mensaje { margin-top: 20px; font-weight: bold; }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        background: #ff2d55; /* Color de PedidosYa */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .back-button:hover {
+        background: #e0264b;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="history.back()" class="back-button">Volver atrás</button>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://bestplacestoworkfor.org/sites/default/files/articles/Pedidosya.jpg"
+        alt="PedidosYa Logo"
+        style="height: 60px; margin-bottom: 10px;" />
+      <h1 style="margin: 0;">JHORDANMC TEMPLATES</h1>
+    </div>
+    <p>Haz clic para copiar una frase:</p>
+
+    <div class="button-grid">
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Descuide, yo te puedo ayudar con el cambio de dirección.')">1. Cambio de dirección de envío</button>
+      <button onclick="copiarAlPortapapeles(this, 'Para proceder con ello, ¿me podrías pasar tu dirección correcta, por favor?')">2. Cambio de dirección parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Entiendo tu malestar, XXX. Te pido disculpas por no haber recibido tu pedido como lo solicitaste. Dame un momento mientras verifico lo sucedido, por favor.')">3. Frase empatica de pedido OMAD</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, Emanuel. Disculpe la demora.')">4. Retoma Demora extrema por sin gps</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, xxx. Lastimosamente, pese a los intentos, no obtuve respuesta de parte del motorizado.')">5. Retoma OMAD</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, XXX, he verificado que el local ha tenido un volumen de pedidos inesperado, lo que ha retrasado la preparación y la entrega. Es debido a ello que mi compañero todavía no ha salido del local.')">6. Retoma Dentro de entrega</button>
+      <button onclick="copiarAlPortapapeles(this, 'Me quedaré monitoreando su pedido para que todo salga bien. Si tienes alguna otra consulta, quedo atento ante cualquier duda. 🙌🏻')">7. Aseguramiento demora extrema</button>
+      <button onclick="copiarAlPortapapeles(this, 'De ante mano, también estoy dejando notificado la demora de tu pedido al local encargado para que se apure en preparar tu orden y así mi compañero pueda recoger tu pedido del local. 🚀')">8. Floro por local demorado</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, Fernanda, mil disculpas por la demora, he verificado que el local está terminando de preparar tu pedido; es debido a ello que mis compañeros todavía no han podido recoger tu pedido del local.')">9. Retoma Floro por queued</button>
+      <button onclick="copiarAlPortapapeles(this, 'De ante mano, también estoy dejando notificado la demora a nuestros motorizados cercanos para que tomen tu pedido como prioridad. Haremos todo lo posible para que tu orden llegue a tu destino. 🚀')">10. Floro 1 por queued</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xx. Es que veo que el local ha tenido un volumen de pedidos inesperado, lo que ha retrasado la preparación y la entrega. Es debido a ello que mis compañeros todavía no han podido retirar tu pedido del local.')">11. Floro 2 por queued para responder a criticos</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, xxx. Le he reasignado el rider anterior porque no se movía para que se agilice el proceso. Mi compañero se llama xxx. Se encuentra a unas 2 cuadras del local.')">12. Floro para reasignación de rider</button>
+      <button onclick="copiarAlPortapapeles(this, 'Descuide, esta vez contamos con un rider con ganas de trabajar y un local a punto de terminar su pedido. Tenemos todas las opciones para que su pedido llegue en buen estado. 🤝')">13. Frase de contención criticos por dentro de entrega</button>
+      <button onclick="copiarAlPortapapeles(this, 'Para tu tranquilidad, se ha enviado una constancia de la devolución a tu correo electrónico XXX, que garantiza que, por parte de Pedidos Ya, se hizo la devolución.')">14. Envio a correo por devolución</button>
+      <button onclick="copiarAlPortapapeles(this, 'Al contrario, gracias a usted por su confianza y tiempo ofrecido, xxx. ¡Cuídese, tenga una buena noche! 💖')">15. DESPEDIDA CONFIANZUDO</button>
+      <button onclick="copiarAlPortapapeles(this, 'Gracias por tu gentil espera, XXX. Le he asignado un rider para que se agilice el proceso. Mi compañero se llama xxx. Se encuentra a unas 2 cuadras del local.')">16. Asignación de rider encontrado </button>
+      <button onclick="copiarAlPortapapeles(this, 'XXX. ¡Buenas noticias! Mi compañero XXX ya tiene tu pedido en mano. Ahora mismo va camino a tu dirección. Te doy la seguridad de que llegaremos con tu orden.')">17. Cuando el rider salió del local!!!</button>
+      <button onclick="copiarAlPortapapeles(this, 'Este atento a su correo, por favor, por ese medio nuestra área de devoluciones le enviará un mensaje para solicitarle los datos de la transferencia.')">18. Devolucion fraude</button>
+      <button onclick="copiarAlPortapapeles(this, 'Veo que su correo registrado es: pereapabloezequiel@gmail.com.')">19. Devolucion fraude</button>
+      <button onclick="copiarAlPortapapeles(this, 'XXX. ¡Buenas noticias! Le acabo de encontrar un nuevo cadete. Mi compañero se llama XXX. Se encuentra a unas tres cuadras del local.')">20. Frase cuando encontramos rider</button>
+      <button onclick="copiarAlPortapapeles(this, 'De todas maneras, dejo el registro de lo sucedido en tu orden para que, en realidad, se tenga en cuenta y ya no se repita este tipo de inconvenientes.')">21. SPEECH DE K</button>
+    </div>
+
+    <div id="mensaje"></div>
+
+    <script>
+      function copiarAlPortapapeles(boton, texto) { // Ahora la función recibe el botón como argumento
+        const colorOriginal = boton.style.backgroundColor; // Guarda el color original del botón
+        boton.style.backgroundColor = 'red'; // Cambia el color del botón a rojo
+
+        const tempInput = document.createElement('input');
+        tempInput.value = texto;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        document.getElementById('mensaje').textContent = '¡Copiado!';
+
+        // Restablece el color del botón después de 1 segundo (1000 milisegundos)
+        setTimeout(() => {
+          boton.style.backgroundColor = colorOriginal; // Restaura el color original
+          document.getElementById('mensaje').textContent = ''; // Borra el mensaje "¡Copiado!"
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
