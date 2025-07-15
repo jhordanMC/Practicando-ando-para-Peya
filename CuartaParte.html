@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoluciones de PedidosYa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #1a3c6e; /* Fondo azul oscuro */
+            margin: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        h1 {
+            color: white;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background: #ff2d55; /* Color de PedidosYa */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background: #e0264b;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="history.back()" class="back-button">Volver atrás</button>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="https://bestplacestoworkfor.org/sites/default/files/articles/Pedidosya.jpg"
+                alt="PedidosYa Logo"
+                style="height: 60px; margin-bottom: 10px;" />
+            <h1>Devoluciones de PedidosYa</h1>
+        </div>
+        <div class="button-grid">
+            <button onclick="copiarAlPortapapeles(this, 'Te confirmo que se realizó la devolución de [MONTO DE LA DEVOLUCIÓN] a tu tarjeta [NOMBRE DEL BANCO], terminada en [4 ULTIMOS DIGITOS]. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a \'Pedidos\' desde la app y seleccionando este pedido.')">1. Devolución Tarjeta Genérica</button>
+            <button onclick="copiarAlPortapapeles(this, 'Te confirmo que se realizó la devolución de [MONTO DE LA DEVOLUCIÓN] a tu tarjeta [NOMBRE DEL BANCO] de crédito, terminada en [4 ULTIMOS DIGITOS]. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a \'Pedidos\' desde la app y seleccionando este pedido.')">2. Devolución Tarjeta Crédito</button>
+            <button onclick="copiarAlPortapapeles(this, 'Te confirmo que se realizó la devolución de [MONTO DE LA DEVOLUCIÓN] a tu tarjeta [NOMBRE DEL BANCO] de débito, terminada en [4 ULTIMOS DIGITOS]. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a \'Pedidos\' desde la app y seleccionando este pedido.')">3. Devolución Tarjeta Débito</button>
+            <button onclick="copiarAlPortapapeles(this, 'Ya te realicé la devolución por [MONTO DE LA DEVOLUCIÓN] como saldo en PedidosYa. Recuerda que el mismo tiene validez por 360 días. Puedes corroborarlo ingresando desde el menú principal de la app a tu billetera PedidosYa.')">4. Devolución Saldo PedidosYa</button>
+            <button onclick="copiarAlPortapapeles(this, 'Te confirmo que se realizó un reembolso de S/xx a tu medio de pago, que aparecerá en tu cuenta YAPE como “Devolución de Pedidos Ya. Normalmente, se refleja en hasta 48 horas, pero en casos excepcionales puede tardar hasta 30 días hábiles, según la entidad financiera. Si después de ese tiempo no lo ves, te recomendamos contactar directamente con ellos para verificarlo.')">5. Devolución Yape</button>
+            <button onclick="copiarAlPortapapeles(this, 'Estamos procesando tu reembolso automáticamente a tu forma de pago original. Si no es posible, lo recibirás en tu cuenta en forma de cupón o en tu billetera virtual de Pedidos Ya en un máximo de 48 horas. ¡Gracias por tu paciencia!')">6. Devolución Pending Retry</button>
+            <button onclick="copiarAlPortapapeles(this, 'Ya gestionamos tu devolución. Queremos contarte cómo funciona: tu pago se hizo por una vía segura, una pasarela de pago.Esto significa que usamos un servicio seguro para manejar tu transacción. A veces, estas devoluciones son automáticas, así que te sugerimos revisar tu banco o la plataforma donde pagaste. Si no lo ves o tienes dudas, no dudes en volver a contactarnos. Agradezco mucho tu paciencia y comprensión.')">7. Devolución Rejected by Gateway</button>
+        </div>
+        <div id="mensaje"></div>
+    </div>
+
+    <script>
+        function copiarAlPortapapeles(boton, texto) {
+            const colorOriginal = boton.style.backgroundColor;
+            boton.style.backgroundColor = 'red';
+
+            const tempInput = document.createElement('input');
+            tempInput.value = texto;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            document.getElementById('mensaje').textContent = '¡Copiado!';
+
+            setTimeout(() => {
+                boton.style.backgroundColor = colorOriginal;
+                document.getElementById('mensaje').textContent = '';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
