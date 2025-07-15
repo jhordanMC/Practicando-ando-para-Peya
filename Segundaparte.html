@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        background: #000000;
+        margin: 20px;
+        color: white; /* Asegura que el texto general del body sea blanco */
+      }
+      .button-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        background: #3498db; /* Color original del botón */
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Transición suave para el color */
+      }
+      button:hover {
+        background: #2980b9;
+      }
+      #mensaje {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      /* **Añadido/Modificado para asegurar la visibilidad del título y el párrafo** */
+      h1 {
+        color: white;
+      }
+      p {
+        color: white;
+      }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        background: #ff2d55; /* Color de PedidosYa */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .back-button:hover {
+        background: #e0264b;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="Paginaprincipal.html" class="back-button">Volver atrás</a>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://bestplacestoworkfor.org/sites/default/files/articles/Pedidosya.jpg"
+        alt="PedidosYa Logo"
+        style="height: 60px; margin-bottom: 10px;" />
+      <h1 style="margin: 0;">JHORDANMC TEMPLATES, Contención de criticos</h1>
+    </div>
+    <p>Haz clic para copiar una frase:</p>
+
+    <div class="button-grid">
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Descuide, yo le puedo ayudar con el cambio de la dirección.')">1. Cambio de dirección de envío</button>
+      <button onclick="copiarAlPortapapeles(this, 'Para proceder con ello, ¿me podrías pasar tu dirección correcta, por favor?')">2. Cambio de dirección parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, XXX. Descuide, yo le puedo apoyar con el cambio. Averiguaré los horarios disponibles, vuelvo en breve.')">3. Cambio de horario preorder</button>
+      <button onclick="copiarAlPortapapeles(this, 'De igual manera, recuerde que puede dejar la valoración al local encargado para que pueda dejar un comentario sobre el servicio que ha presentado. Es presionando sobre el nombre del local dentro de la misma app.')">4. Contención de críticos por local demorado parte 1</button>
+      <button onclick="copiarAlPortapapeles(this, 'También he dejado registrado lo ocurrido para que no se repita esta situación. Nos encargaremos de tomar las medidas necesarias para cambiar y mejorar nuestros servicios.')">5. Contención OMAD</button>
+      <button onclick="copiarAlPortapapeles(this, 'Comprendo su posición, XXX. Créame que al cancelar la orden, se deja un registro para que se le cobre sobre la orden al motorizado y a la vez se deja un registro interno contra el rider.')">6. Contención OMAD contra el rider</button>
+      <button onclick="copiarAlPortapapeles(this, 'De ante mano, también estoy dejando notificado la demora de tu pedido a nuestro motorizado para que se apure en llevar tu pedido y llegue lo antes posible. 🚀')">7. Floro por demora extrema de parte del rider</button>
+      <button onclick="copiarAlPortapapeles(this, 'Comprendo su posición, Hugo. Créame que al cancelar la orden, se deja un registro para que el local no tenga ganancias. Ya he tomado medidas contra el local.')">8. Contención OMAD contra el local</button>
+      <button onclick="copiarAlPortapapeles(this, 'Comprendo su posición, María. Es que veo que el local ha tenido un volumen de pedidos inesperado, lo que ha retrasado la preparación y la entrega.')">9. Contención local demorado</button>
+      <button onclick="copiarAlPortapapeles(this, 'Pero no se preocupe, veo que mi compañero xxx está en el local desde las xx:xx y ya falta poco para su pedido.')">10. Contención local demorado parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'De ante mano, también estoy dejando notificado la demora a nuestros motorizados cercanos para que tomen tu pedido como prioridad. Haremos todo lo posible para que tu orden llegue a tu destino. 🚀')">11. Floro 1 por queued</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xx. Es que veo que el local ha tenido un volumen de pedidos inesperado, lo que ha retrasado la preparación y la entrega. Es debido a ello que mis compañeros todavía no han podido retirar tu pedido del local.')">12. Floro 2 por queued para responder a criticos</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Yo le apoyaré con la cancelación y devolución total de la orden.')">13. Devolución total y cancelación</button>
+      <button onclick="copiarAlPortapapeles(this, 'Descuide, esta vez contamos con un rider con ganas de trabajar y un local a punto de terminar su pedido. Tenemos todas las opciones para que su pedido llegue en buen estado. 🤝')">14. Frase de contención criticos por dentro de entrega</button>
+      <button onclick="copiarAlPortapapeles(this, 'Para tu tranquilidad, se ha enviado una constancia de la devolución a tu correo electrónico XXX, que garantiza que, por parte de Pedidos Ya, se hizo la devolución.')">15. Envio a correo por devolución</button>
+      <button onclick="copiarAlPortapapeles(this, 'Al contrario, gracias a usted por su confianza y tiempo ofrecido, xxx. ¡Cuídese, tenga una buena noche! 💖')">16. DESPEDIDA CONFIANZUDO</button>
+      <button onclick="copiarAlPortapapeles(this, 'Te entiendo, XXX. Descuide, me ha pasado a mí también.')">17. Cambio de método de pago parte 1 </button>
+      <button onclick="copiarAlPortapapeles(this, 'Yo le apoyaré con la cancelación para que pueda ingresar nuevamente su tarjeta.')">18. Cambio de método de pago parte 2</button>
+      <button onclick="copiarAlPortapapeles(this, 'Ya puede volver a generar el pedido, xxx. Recuerde esta vez elegir su medio de pago, por favor. 💳')">19. Cancelación por cambio metodo de pago parte 3</button>
+      <button onclick="copiarAlPortapapeles(this, 'También he devuelto el cupón utilizado en tu compra de xxx.')">20. Devolucion cupón</button>
+      <button onclick="copiarAlPortapapeles(this, 'Comprendo su posición, XXX, perdón por hacerlo esperar. Ahora mismo le apoyo con la cancelación y el reembolso total de la orden.')">21. Devolviendo a pin sin gps</button>
+    </div>
+
+    <div id="mensaje"></div>
+
+    <script>
+      function copiarAlPortapapeles(boton, texto) {
+        const colorOriginal = boton.style.backgroundColor;
+        boton.style.backgroundColor = 'red';
+
+        const tempInput = document.createElement('input');
+        tempInput.value = texto;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        document.getElementById('mensaje').textContent = '¡Copiado!';
+
+        setTimeout(() => {
+          boton.style.backgroundColor = colorOriginal;
+          document.getElementById('mensaje').textContent = '';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
