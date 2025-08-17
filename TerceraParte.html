@@ -46,9 +46,10 @@
       body {
         font-family: sans-serif;
         text-align: center;
-        background: #1a3c34; /* Fondo verde oscuro */
+        background: white; /* Fondo por defecto */
         margin: 20px;
-        color: white;
+        color: black; /* Color de texto cambiado a negro para contraste */
+        transition: background 0.3s ease; /* Transición suave para el cambio de fondo */
       }
       .button-grid {
         display: grid;
@@ -79,10 +80,10 @@
         font-weight: bold;
       }
       h1, h2 {
-        color: white;
+        color: black; /* Color de encabezados cambiado a negro para contraste */
       }
       p {
-        color: white;
+        color: black; /* Color de párrafos cambiado a negro para contraste */
       }
       .back-button {
         position: absolute;
@@ -123,8 +124,8 @@
         outline: none;
       }
       .combobox option {
-        background: #1a3c34;
-        color: white;
+        background: white; /* Fondo de opciones cambiado a blanco */
+        color: black; /* Color de texto de opciones cambiado a negro */
         font-size: 0.8em; /* Tamaño de fuente más pequeño para opciones */
       }
       .header-container {
@@ -241,6 +242,55 @@
       input:checked + .slider:before {
         transform: translateX(26px);
       }
+      .accessibility-switch-container {
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .accessibility-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+      .accessibility-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .accessibility-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+      }
+      .accessibility-slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+      }
+      input#accessibilitySwitch:checked + .accessibility-slider {
+        background-color: #2196F3;
+      }
+      input#accessibilitySwitch:checked + .accessibility-slider:before {
+        transform: translateX(26px);
+      }
+      body.accessibility-mode {
+        background: #F5F5F5; /* Gris claro para alta visibilidad */
+      }
       .mexico-button {
         background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg');
         background-size: cover;
@@ -296,7 +346,8 @@
       }
       .peru-button:hover {
         background-color: rgba(41, 128, 185, 0.2);
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCIdH-VI1hLl48PBzEBN0eg_JN50TGagcxuS4f4FsUwpORIaU_XNLYYvO1JDc&s=10');
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:\
+        &s=10');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -484,7 +535,7 @@
     </style>
   </head>
   <body>
-    <button onclick="history.back()" class="back-button">Volver atrás</button>
+    <button onclick="window.location.href='https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html'" class="back-button">Volver atrás</button>
     <select class="combobox" aria-label="Selecciona una opción de devolución" onchange="copiarAlPortapapeles(this, this.value)">
       <option value="">Selecciona una opción</option>
       <option value="Te confirmo que se realizó la devolución de XXX a tu tarjeta XXX, terminada en XXX. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a 'Pedidos' desde la app y seleccionando este pedido.">1. Devolución Tarjeta Genérica</option>
@@ -496,10 +547,17 @@
       <option value="Ya gestionamos tu devolución. Queremos contarte cómo funciona: tu pago se hizo por una vía segura, una pasarela de pago. Esto significa que usamos un servicio seguro para manejar tu transacción. A veces, estas devoluciones son automáticas, así que te sugerimos revisar tu banco o la plataforma donde pagaste. Si no lo ves o tienes dudas, no dudes en volver a contactarnos. Agradezco mucho tu paciencia y comprensión.">7. Devolución Rejected by Gateway</option>
       <option value="Para tu tranquilidad, se ha enviado una constancia de la devolución a tu correo electrónico XXX, que garantiza que, por parte de Pedidos Ya, se hizo la devolución.">8. Correo de Pedidos Ya</option>
     </select>
+    <div class="accessibility-switch-container">
+      <label class="accessibility-switch">
+        <input type="checkbox" id="accessibilitySwitch" onchange="toggleAccessibilityMode()">
+        <span class="accessibility-slider"></span>
+      </label>
+      <span style="margin-left: 10px; color: black;">Modo Alta Visibilidad</span>
+    </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <img src="https://bestplacestoworkfor.org/sites/default/files/articles/Pedidosya.jpg"
         alt="PedidosYa Logo"
-        style="height: 60px; margin-bottom: 10px;" />
+        style="height: 60px; margin-bottom: 10px; border-radius: 10px;" />
       <h1 style="margin: 0;">JHORDANMC TEMPLATES, CAMBIOS</h1>
     </div>
     <p>Haz clic para copiar una frase:</p>
@@ -675,6 +733,10 @@
         const flagContainer = document.getElementById('flagContainer');
         flagContainer.classList.remove('active');
       });
+
+      function toggleAccessibilityMode() {
+        document.body.classList.toggle('accessibility-mode');
+      }
     </script>
   </body>
 </html>
