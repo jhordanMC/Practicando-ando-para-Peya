@@ -734,14 +734,17 @@
 
         function goBack() {
             try {
-                if (window.history.length > 1) {
-                    window.history.back();
-                } else {
-                    alert('No hay página anterior en el historial. Por favor, navega manualmente a la página deseada.');
-                }
+                console.log('Intentando retroceder con history.back(). Historial length:', window.history.length);
+                history.back();
             } catch (e) {
                 console.error('Error al intentar retroceder:', e);
-                alert('No se pudo retroceder. Por favor, intenta navegar manualmente.');
+                // Fallback a la URL original
+                try {
+                    window.location.href = 'https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html';
+                } catch (fallbackError) {
+                    console.error('Error en el fallback de redirección:', fallbackError);
+                    alert('No se pudo retroceder ni redirigir. Por favor, intenta navegar manualmente a https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html');
+                }
             }
         }
 
