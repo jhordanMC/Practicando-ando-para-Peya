@@ -652,7 +652,7 @@
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="goBack()">Volver atrás</button>
+    <button onclick="window.location.href='https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html'" class="back-button">Volver atrás</button>
     <button class="time-switch-button" id="timeSwitchButton" onclick="toggleTime()">Tarde</button>
     <select class="combobox" aria-label="Selecciona una opción de devolución" onchange="copiarAlPortapapeles(this, this.value)">
         <option value="" disabled selected>Selecciona una opción</option>
@@ -741,21 +741,6 @@
             document.getElementById('timeSwitchButton').textContent = isNight ? 'Noche' : 'Tarde';
         }
 
-        function goBack() {
-            try {
-                console.log('Intentando retroceder con history.back(). Historial length:', window.history.length);
-                history.back();
-            } catch (e) {
-                console.error('Error al intentar retroceder:', e);
-                try {
-                    window.location.href = 'https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html';
-                } catch (fallbackError) {
-                    console.error('Error en el fallback de redirección:', fallbackError);
-                    alert('No se pudo retroceder ni redirigir. Por favor, intenta navegar manualmente a https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html');
-                }
-            }
-        }
-
         function getFarewell(country) {
             const customerName = document.getElementById('customerName').value.trim() || 'Cliente';
             const farewells = {
@@ -773,7 +758,7 @@
                 },
                 argentina: {
                     afternoon: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, ten una buena tarde! 🩵🤍🩵`,
-                    night: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, ten una buena noche! 🩵🤍�5`
+                    night: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, ten una buena noche! 🩵🤍🩵`
                 },
                 chile: {
                     afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍❤️`,
