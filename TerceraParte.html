@@ -275,6 +275,24 @@
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
+        .farewell-switch-button {
+            position: absolute;
+            top: 20px;
+            left: 260px;
+            padding: 8px 16px;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .farewell-switch-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
         .name-input {
             position: absolute;
             top: 20px;
@@ -600,6 +618,81 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        .paraguay-button {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            width: 120px;
+            height: 80px;
+            font-size: 0.9em;
+            line-height: 80px;
+            padding: 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .paraguay-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bolivia-button {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            width: 120px;
+            height: 80px;
+            font-size: 0.9em;
+            line-height: 80px;
+            padding: 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .bolivia-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .uruguay-button {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hwgYZrcGfwOFmeccHZkhyZw25_yJKldKJ8pQJOc0XnCCHXTom8QSKiwjMNI&s=10');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            width: 120px;
+            height: 80px;
+            font-size: 0.9em;
+            line-height: 80px;
+            padding: 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .uruguay-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hwgYZrcGfwOFmeccHZkhyZw25_yJKldKJ8pQJOc0XnCCHXTom8QSKiwjMNI&s=10');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
         #mensaje {
             margin-top: 20px;
             font-weight: bold;
@@ -618,14 +711,14 @@
             .flag-grid {
                 grid-template-columns: 1fr;
             }
-            button, .back-button, .combobox, .name-input, .time-switch-button {
+            button, .back-button, .combobox, .name-input, .time-switch-button, .farewell-switch-button {
                 font-size: 0.9em;
                 padding: 8px 16px;
             }
             .mexico-button, .colombia-button, .peru-button, .venezuela-button, 
             .argentina-button, .chile-button, .brasil-button, .elsalvador-button, 
             .guatemala-button, .republicadominicana-button, .panama-button, 
-            .honduras-button {
+            .honduras-button, .paraguay-button, .bolivia-button, .uruguay-button {
                 width: 100%;
                 max-width: 120px;
                 margin: 0 auto;
@@ -637,6 +730,10 @@
             .time-switch-button {
                 top: 50px;
                 left: 10px;
+            }
+            .farewell-switch-button {
+                top: 50px;
+                left: 140px;
             }
             .combobox {
                 top: 90px;
@@ -654,6 +751,7 @@
 <body>
     <button onclick="window.location.href='https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html'" class="back-button">Volver atrás</button>
     <button class="time-switch-button" id="timeSwitchButton" onclick="toggleTime()">Tarde</button>
+    <button class="farewell-switch-button" id="farewellSwitchButton" onclick="toggleFarewell()">Confianza</button>
     <select class="combobox" aria-label="Selecciona una opción de devolución" onchange="copiarAlPortapapeles(this, this.value)">
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Te confirmo que se realizó la devolución de XXX a tu tarjeta XXX, terminada en XXX. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a 'Pedidos' desde la app y seleccionando este pedido.">1. Devolución Tarjeta Genérica</option>
@@ -712,14 +810,17 @@
                     <button class="republicadominicana-button" onclick="copiarAlPortapapeles(this, getFarewell('republicadominicana'))" data-country="republicadominicana">República Dominicana</button>
                     <button class="panama-button" onclick="copiarAlPortapapeles(this, getFarewell('panama'))" data-country="panama">Panamá</button>
                     <button class="honduras-button" onclick="copiarAlPortapapeles(this, getFarewell('honduras'))" data-country="honduras">Honduras</button>
+                    <button class="paraguay-button" onclick="copiarAlPortapapeles(this, getFarewell('paraguay'))" data-country="paraguay">Paraguay</button>
+                    <button class="bolivia-button" onclick="copiarAlPortapapeles(this, getFarewell('bolivia'))" data-country="bolivia">Bolivia</button>
+                    <button class="uruguay-button" onclick="copiarAlPortapapeles(this, getFarewell('uruguay'))" data-country="uruguay">Uruguay</button>
                 </div>
             </div>
         </div>
         <div class="button-grid">
-            <button onclick="copiarAlPortapapeles(this, 'Gracias a usted por su confianza y tiempo ofrecido, xxx. ¡Cuídese, tenga una buena noche! 💖')">1. DESPEDIDA CONFIANZA</button>
-            <button onclick="copiarAlPortapapeles(this, 'Gracias a usted por su comprensión y paciencia, xxx. ¡Cuídese, tenga una buena noche! 💖')">2. DESPEDIDA COMPRENSIÓN</button>
-            <button onclick="copiarAlPortapapeles(this, 'Al contrario, gracias a usted por su confianza y tiempo ofrecido, xxx. ¡Cuídese, tenga una buena noche! 💖')">3. Al contrario DESPEDIDA CONFIANZA</button>
-            <button onclick="copiarAlPortapapeles(this, 'Al contrario, gracias a usted por su comprensión y paciencia, xxx. ¡Cuídese, tenga una buena noche! 💖')">4. Al contrario DESPEDIDA COMPRENSIÓN</button>
+            <button onclick="copiarAlPortapapeles(this, getDespedida('confianza'))">1. DESPEDIDA CONFIANZA</button>
+            <button onclick="copiarAlPortapapeles(this, getDespedida('comprension'))">2. DESPEDIDA COMPRENSIÓN</button>
+            <button onclick="copiarAlPortapapeles(this, getDespedida('alcontrario_confianza'))">3. Al contrario DESPEDIDA CONFIANZA</button>
+            <button onclick="copiarAlPortapapeles(this, getDespedida('alcontrario_comprension'))">4. Al contrario DESPEDIDA COMPRENSIÓN</button>
         </div>
         <h2>ENCUESTA</h2>
         <div class="button-grid">
@@ -735,65 +836,97 @@
     </div>
     <script>
         let isNight = false;
+        let isConfianza = true;
 
         function toggleTime() {
             isNight = !isNight;
             document.getElementById('timeSwitchButton').textContent = isNight ? 'Noche' : 'Tarde';
         }
 
+        function toggleFarewell() {
+            isConfianza = !isConfianza;
+            document.getElementById('farewellSwitchButton').textContent = isConfianza ? 'Confianza' : 'Comprensión';
+        }
+
+        function getDespedida(type) {
+            const customerName = document.getElementById('customerName').value.trim() || 'Cliente';
+            const time = isNight ? 'noche' : 'tarde';
+            const despedidas = {
+                confianza: `Gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena ${time}! 💖`,
+                comprension: `Gracias a usted por su comprensión y paciencia, ${customerName}. ¡Cuídese, tenga una buena ${time}! 💖`,
+                alcontrario_confianza: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena ${time}! 💖`,
+                alcontrario_comprension: `Al contrario, gracias a usted por su comprensión y paciencia, ${customerName}. ¡Cuídese, tenga una buena ${time}! 💖`
+            };
+            return despedidas[type];
+        }
+
         function getFarewell(country) {
             const customerName = document.getElementById('customerName').value.trim() || 'Cliente';
+            const time = isNight ? 'night' : 'afternoon';
+            const confianzaText = isConfianza ? 'confianza y tiempo ofrecido' : 'comprensión y paciencia';
             const farewells = {
                 mexico: {
-                    afternoon: `Al contrario, gracias a ti por tu confianza y el tiempo, ${customerName}. ¡Cuídate, que te vaya muy chido! 💚🤍❤️`,
-                    night: `Al contrario, gracias a ti por tu confianza y el tiempo, ${customerName}. ¡Cuídate, que tengas una excelente noche! 💚🤍❤️`
+                    afternoon: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que te vaya muy chido! 💚🤍❤️`,
+                    night: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una excelente noche! 💚🤍❤️`
                 },
                 colombia: {
-                    afternoon: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que tengas una excelente tarde! 💛💙❤️`,
-                    night: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que tengas una excelente noche! 💛💙❤️`
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! 💛💙❤️`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 💛💙❤️`
                 },
                 peru: {
-                    afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💖🤍❤️`,
-                    night: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena noche! 💖🤍❤️`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💖🤍❤️`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💖🤍❤️`
                 },
                 argentina: {
-                    afternoon: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, ten una buena tarde! 🩵🤍🩵`,
-                    night: `Al contrario, gracias a vos por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, ten una buena noche! 🩵🤍🩵`
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, ten una buena tarde! 🩵🤍🩵`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, ten una buena noche! 🩵🤍🩵`
                 },
                 chile: {
-                    afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍❤️`,
-                    night: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍❤️`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍❤️`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍❤️`
                 },
                 venezuela: {
-                    afternoon: `Al contrario, gracias a ti por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que la paz te acompañe! 💛💙❤️`,
-                    night: `Al contrario, gracias a ti por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que tengas una excelente noche! 💛💙❤️`
+                    afternoon: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que la paz te acompañe! 💛💙❤️`,
+                    night: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 💛💙❤️`
                 },
                 brasil: {
-                    afternoon: `Al contrario, gracias a você por sua confiança e tempo oferecido, ${customerName}. ¡Cuídate, que você tenha uma ótima tarde! 💚💛💙`,
-                    night: `Al contrario, gracias a você por sua confiança e tempo oferecido, ${customerName}. ¡Cuídate, que você tenha uma ótima noite! 💚💛💙`
+                    afternoon: `Al contrario, gracias a você por sua ${confianzaText}, ${customerName}. ¡Cuídate, que você tenha uma ótima tarde! 💚💛💙`,
+                    night: `Al contrario, gracias a você por sua ${confianzaText}, ${customerName}. ¡Cuídate, que você tenha uma ótima noite! 💚💛💙`
                 },
                 elsalvador: {
-                    afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍💙`,
-                    night: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍💙`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍💙`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍💙`
                 },
                 guatemala: {
-                    afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍💙`,
-                    night: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍💙`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍💙`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍💙`
                 },
                 republicadominicana: {
-                    afternoon: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍❤️`,
-                    night: `Al contrario, gracias a usted por su confianza y tiempo ofrecido, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍❤️`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💙🤍❤️`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💙🤍❤️`
                 },
                 panama: {
-                    afternoon: `Al contrario, gracias a ti por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que tengas una tarde llena de éxitos! ❤️🤍💙`,
-                    night: `Al contrario, gracias a ti por tu confianza y tiempo ofrecido, ${customerName}. ¡Cuídate, que tengas una noche llena de éxitos! ❤️🤍💙`
+                    afternoon: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! ❤️🤍💙`,
+                    night: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! ❤️🤍💙`
                 },
                 honduras: {
-                    afternoon: `Al contrario, gracias a vos por tu confianza y tiempo, ${customerName}. ¡Cuídate, que tengas una tarde llena de bendiciones! 💙🤍💙`,
-                    night: `Al contrario, gracias a vos por tu confianza y tiempo, ${customerName}. ¡Cuídate, que tengas una noche llena de bendiciones! 💙🤍💙`
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! 🩵🤍🩵`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 🩵🤍🩵`
+                },
+                paraguay: {
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! ❤️🤍💙`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! ❤️🤍💙`
+                },
+                bolivia: {
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! ❤️💛💚`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! ❤️💛💚`
+                },
+                uruguay: {
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, ten una buena tarde! ☀️🩵🤍`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, ten una buena noche! ☀️🩵🤍`
                 }
             };
-            return farewells[country][isNight ? 'night' : 'afternoon'];
+            return farewells[country][time];
         }
 
         function copiarAlPortapapeles(elemento, texto) {
