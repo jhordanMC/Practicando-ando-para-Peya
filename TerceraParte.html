@@ -275,24 +275,6 @@
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
-        .farewell-switch-button {
-            position: absolute;
-            top: 20px;
-            left: 260px;
-            padding: 8px 16px;
-            font-size: 1em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            color: white;
-            transition: background-color 0.3s;
-        }
-        .farewell-switch-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-        }
         .name-input {
             position: absolute;
             top: 20px;
@@ -711,7 +693,7 @@
             .flag-grid {
                 grid-template-columns: 1fr;
             }
-            button, .back-button, .combobox, .name-input, .time-switch-button, .farewell-switch-button {
+            button, .back-button, .combobox, .name-input, .time-switch-button {
                 font-size: 0.9em;
                 padding: 8px 16px;
             }
@@ -731,10 +713,6 @@
                 top: 50px;
                 left: 10px;
             }
-            .farewell-switch-button {
-                top: 50px;
-                left: 140px;
-            }
             .combobox {
                 top: 90px;
                 right: 10px;
@@ -751,7 +729,6 @@
 <body>
     <button onclick="window.location.href='https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html'" class="back-button">Volver atrás</button>
     <button class="time-switch-button" id="timeSwitchButton" onclick="toggleTime()">Tarde</button>
-    <button class="farewell-switch-button" id="farewellSwitchButton" onclick="toggleFarewell()">Confianza</button>
     <select class="combobox" aria-label="Selecciona una opción de devolución" onchange="copiarAlPortapapeles(this, this.value)">
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Te confirmo que se realizó la devolución de XXX a tu tarjeta XXX, terminada en XXX. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a 'Pedidos' desde la app y seleccionando este pedido.">1. Devolución Tarjeta Genérica</option>
@@ -797,6 +774,7 @@
             <div class="flag-container-content">
                 <button class="close-button" onclick="cerrarFlagContainer()">X</button>
                 <h3>Despedidas por Países</h3>
+                <button class="farewell-switch-button" id="farewellSwitchButton" onclick="toggleFarewell()">Confianza</button>
                 <div class="flag-grid">
                     <button class="mexico-button" onclick="copiarAlPortapapeles(this, getFarewell('mexico'))" data-country="mexico">México</button>
                     <button class="colombia-button" onclick="copiarAlPortapapeles(this, getFarewell('colombia'))" data-country="colombia">Colombia</button>
@@ -870,8 +848,8 @@
                     night: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una excelente noche! 💚🤍❤️`
                 },
                 colombia: {
-                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! 💛💙❤️`,
-                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 💛💙❤️`
+                    afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💛💙❤️`,
+                    night: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena noche! 💛💙❤️`
                 },
                 peru: {
                     afternoon: `Al contrario, gracias a usted por su ${confianzaText}, ${customerName}. ¡Cuídese, tenga una buena tarde! 💖🤍❤️`,
@@ -910,8 +888,8 @@
                     night: `Al contrario, gracias a ti por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! ❤️🤍💙`
                 },
                 honduras: {
-                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! 🩵🤍🩵`,
-                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 🩵🤍🩵`
+                    afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! 💙🤍💙`,
+                    night: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena noche! 💙🤍💙`
                 },
                 paraguay: {
                     afternoon: `Al contrario, gracias a vos por tu ${confianzaText}, ${customerName}. ¡Cuídate, que tengas una buena tarde! ❤️🤍💙`,
