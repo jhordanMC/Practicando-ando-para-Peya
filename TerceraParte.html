@@ -46,7 +46,7 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-image: url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=pexels-pixabay-2150.jpg&fm=jpg');
+            background-image: url('https://images.unsplash.com/photo-1498116069452-debf99cb30f0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGVzcGFjaW8lMjBuZWdyb3xlbnwwfHwwfHx8MA%3D%3D');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -274,6 +274,17 @@
         .time-switch-button:hover {
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
+        }
+        .timer-container {
+            position: absolute;
+            top: 20px;
+            left: 250px;
+            padding: 8px 16px;
+            font-size: 1em;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: white;
         }
         .name-input {
             position: absolute;
@@ -670,7 +681,7 @@
         .uruguay-button:hover {
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hwgYZrcGfwOFmeccHZkhyZw25_yJKldKJ8pQJOc0XnCCHXTom8QSKiwjMNI&s=10');
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn=CCs1hwgYZrcGfwOFmeccHZkhyZw25_yJKldKJ8pQJOc0XnCCHXTom8QSKiwjMNI&s=10');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -713,6 +724,10 @@
                 top: 50px;
                 left: 10px;
             }
+            .timer-container {
+                top: 50px;
+                left: 140px;
+            }
             .combobox {
                 top: 90px;
                 right: 10px;
@@ -729,6 +744,7 @@
 <body>
     <button onclick="window.location.href='https://jhordanmc.github.io/Practicando-ando-para-Peya/Paginaprincipal.html'" class="back-button">Volver atrás</button>
     <button class="time-switch-button" id="timeSwitchButton" onclick="toggleTime()">Tarde</button>
+    <div class="timer-container" id="timerDisplay">0s</div>
     <select class="combobox" aria-label="Selecciona una opción de devolución" onchange="copiarAlPortapapeles(this, this.value)">
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Te confirmo que se realizó la devolución de XXX a tu tarjeta XXX, terminada en XXX. La devolución demora aproximadamente 7 días hábiles como máximo en verse impactada en tu resumen de cuenta. Puedes encontrar toda la información de la devolución ingresando a 'Pedidos' desde la app y seleccionando este pedido.">1. Devolución Tarjeta Genérica</option>
@@ -748,7 +764,7 @@
         <div class="button-grid">
             <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Descuide, yo le puedo ayudar con el cambio de la dirección.')">1. Cambio de dirección de envío</button>
             <button onclick="copiarAlPortapapeles(this, 'Para proceder con ello, ¿me podrías pasar tu dirección correcta, por favor?')">2. Cambio de dirección parte 2</button>
-            <button onclick="copiarAlPortapapeles(this, 'Te entiendo, xxx. Descuide, yo le puedo apoyar con el cambio. Averiguaré los horarios disponibles, vuelvo en breve.')">3. Cambio de horario preorder</button>
+            <button onclick="copiarAlPortapapeles(this, 'Me quedaré monitoreando su pedido para que todo salga bien. Si tienes alguna otra consulta, quedo atento ante cualquier duda. 🙌🏻')">3. P DX FPART</button>
             <button onclick="copiarAlPortapapeles(this, 'Gracias por la confirmación, xxx. Ahora mismo te confirmo el nuevo horario. ')">4. Cambio de horario preorder parte 2</button>
             <button onclick="copiarAlPortapapeles(this, 'Aprecio su paciencia, xxx. ¿Hay algo más en lo que pueda ayudarle?')">5. Pregunta de aseguramiento parte 1</button>
             <button onclick="copiarAlPortapapeles(this, 'Gracias, xxx. Además de ello, ¿hay algo más con lo que le pueda ayudar? 🙌🏻')">6. Pregunta de aseguramiento parte 2</button>
@@ -815,6 +831,17 @@
     <script>
         let isNight = false;
         let isConfianza = true;
+        let startTime = Date.now();
+
+        function updateTimer() {
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            document.getElementById('timerDisplay').textContent = `${elapsedTime}s`;
+        }
+
+        function resetTimer() {
+            startTime = Date.now();
+            updateTimer();
+        }
 
         function toggleTime() {
             isNight = !isNight;
@@ -941,6 +968,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             const flagContainer = document.getElementById('flagContainer');
             flagContainer.classList.remove('active');
+            setInterval(updateTimer, 1000);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                resetTimer();
+            }
         });
     </script>
 </body>
